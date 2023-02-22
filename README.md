@@ -5,7 +5,7 @@ graphs, manuscript".
 The program uses Brendan McKay's graph6 format to read and write graphs. See <http://users.cecs.anu.edu.au/~bdm/data/formats.txt>.
 
 ### Short manual
-This program can be used to determine whether a given 3-edge-connected cubic graph has Frank number 2 or not, however, without any optional parameters it is assumed all input graphs are cyclically 4-edge-connected cubic graphs. The program makes use of two algorithms, a heuristic algorithm which checks sufficient conditions for graphs to have Frank number 2 and an exact algorithm. This heuristic algorithm only works for cyclically 4-edge-connected graphs. Without any extra flags first the sufficient condition is test and if it fails the exact algorithm is performed. 
+This program can be used to determine whether a given 3-edge-connected cubic graph has Frank number 2 or not, however, without any optional parameters it is assumed all input graphs are cyclically 4-edge-connected cubic graphs. The program makes use of two algorithms, a heuristic algorithm which checks sufficient conditions for graphs to have Frank number 2 and an exact algorithm. This heuristic algorithm only works for cyclically 4-edge-connected graphs. Without any extra flags the sufficient condition is tested first and if it fails the exact algorithm is performed. 
 
 This program supports graphs up to 128 vertices.
 
