@@ -53,7 +53,6 @@ The order in which the arguments appear does not matter.\n\
 #include <string.h>
 #include "readGraph/readGraph6.h"
 #include "bitset.h"
-#include "hamiltonicityMethods.h"
 
 struct counters {
     long long unsigned int generatedOrientations;
