@@ -5,9 +5,9 @@ graphs, manuscript".
 The program uses Brendan McKay's graph6 format to read and write graphs. See <http://users.cecs.anu.edu.au/~bdm/data/formats.txt>.
 
 ### Short manual
-This program can be used to determine whether a given 3-edge-connected cubic graph has Frank number 2 or not, however, without any optional parameters it is assumed all input graphs are cyclically 4-edge-connected cubic graphs. The program makes use of two algorithms, a heuristic algorithm which checks sufficient conditions for graphs to have Frank number 2 and an exact algorithm. This heuristic algorithm only works for cyclically 4-edge-connected graphs. Without any extra flags the sufficient condition is tested first and if it fails the exact algorithm is performed. 
+This program can be used to determine whether a given 3-edge-connected cubic graph has Frank number 2 or not, however, without any optional parameters it is assumed all input graphs are cyclically 4-edge-connected cubic graphs. The program makes use of two algorithms, a heuristic algorithm which checks sufficient conditions for graphs to have Frank number 2 and an exact algorithm. This heuristic algorithm only works for cyclically 4-edge-connected graphs. Without any extra flags first the sufficient condition is test and if it fails the exact algorithm is performed. 
 
-This program supports graphs up to 128 vertices.
+This program supports cubic graphs with less than 84 vertices.
 
 ### Installation
 
@@ -18,7 +18,7 @@ This requires a working shell and `make`. Navigate to the folder containing find
 * `make 128bitarray` to create a binary for an alternative 128-bit version;
 * `make all` to create all the above binaries.
 
-The 64-bit version supports graphs only up to 64 vertices, the 128-bit versions up to 128 vertices. For graphs containing up to 64 vertices the 64-bit version performs siginificantly faster than the 128-bit versions. Typically, the 128-bit array version performs faster than the standard 128-bit version. Use `make clean` to remove all binaries created in this way.
+The 64-bit version supports cubic graphs with less than 42 vertices, the 128-bit versions support cubic graphs with less than 86 vertices. For graphs containing up to 42 vertices the 64-bit version performs siginificantly faster than the 128-bit versions. Typically, the 128-bit array version performs faster than the standard 128-bit version. Use `make clean` to remove all binaries created in this way.
 
 ### Usage of findFrankNumber
 
@@ -81,3 +81,12 @@ The same behaviour as `./findFrankNumber`, but only consider every eigth graph f
 
 `./findFrankNumber -s 3/8`
 The same behaviour as `./findFrankNumber`, but the computation is parallellized for a single graph. This does not parallelize the heuristic algorithm, but it does for the exact algorithm. If some part determines that the Frank number is 2, this is the case. Only if all parts cannot determine the Frank number is 2, the Frank number is not equal to 2.
+
+Graphs in graph6 format can be sent to stdin via a file:
+`./findFrankNumber < location/of/file.g6`
+
+Or directly via their graph6 code:
+`./findFrankNumber <<< 'IsP@OkWHG'`
+
+Or sent from stdout of another program which outputs graphs in graph6 format:
+`./otherProgram | ./findFrankNumber`
